@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.10)
+project(c-gateway CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(api-gateway-cpp src/main.cpp)
+
+find_package(Crow REQUIRED)
+target_link_libraries(api-gateway-cpp PRIVATE Crow::Crow)
+
+
