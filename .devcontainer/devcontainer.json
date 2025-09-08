@@ -1,0 +1,14 @@
+{
+    "name": "API Gateway in C++",
+    "dockerComposeFile":"../docker-compose.yml",
+    "service": "api-gateway",
+    "workspaceFolder": "/app/src",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    }
+}
