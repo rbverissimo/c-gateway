@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/devcontainers/cpp:1-bookworm AS builder
 
-RUN sudo apt-get update && sudo apt-get install -y git
+RUN sudo apt-get update && sudo apt-get install -y git cmake
 
 WORKDIR /app
 
