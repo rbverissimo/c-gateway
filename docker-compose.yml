@@ -1,8 +1,12 @@
 
 services:
   api-gateway:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      target: builder
     ports:
       - "18080:18080"
     volumes:
-      - ./:/app/src
+      - ./:/usrapp
+    command: sleep infinity

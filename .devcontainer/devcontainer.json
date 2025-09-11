@@ -2,7 +2,9 @@
     "name": "API Gateway in C++",
     "dockerComposeFile":"../docker-compose.yml",
     "service": "api-gateway",
-    "workspaceFolder": "/app/src",
+    "workspaceFolder": "/usrapp",
+    "postCreateCommand": "sudo chown -R vscode:vscode /usrapp",
+    "remoteUser": "vscode",
     "customizations": {
         "vscode": {
             "extensions": [
