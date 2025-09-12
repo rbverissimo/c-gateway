@@ -8,5 +8,5 @@ services:
     ports:
       - "18080:18080"
     volumes:
-      - ./:/usrapp
+      - .:/usrapp
     command: sleep infinity
