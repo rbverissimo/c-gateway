@@ -2,6 +2,7 @@
     "name" : "c-gateway",
     "version-string" : "1.0.0",
     "dependencies" : [
-        "crow"
+        "crow",
+        "cpr"
     ]
 }

@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(api-gateway-cpp src/main.cpp)
 
 find_package(Crow REQUIRED)
-target_link_libraries(api-gateway-cpp PRIVATE Crow::Crow)
+find_package(cpr REQUIRED)
+target_link_libraries(api-gateway-cpp PRIVATE Crow::Crow cpr::cpr)
 
 
