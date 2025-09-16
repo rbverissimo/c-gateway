@@ -3,7 +3,7 @@
     "dockerComposeFile":"../docker-compose.yml",
     "service": "api-gateway",
     "workspaceFolder": "/usrapp",
-    "postCreateCommand": "sudo chown -R vscode:vscode /vcpkg && chmod -R u+rwX & ",
+    // "postCreateCommand": "sudo chown -R vscode:vscode /vcpkg && chmod -R u+rwX & ",
     "remoteUser": "vscode",
     "customizations": {
         "vscode": {

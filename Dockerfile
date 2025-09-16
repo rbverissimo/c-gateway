@@ -14,7 +14,7 @@ COPY vcpkg.json .
 
 RUN /vcpkg/vcpkg install --triplet x64-linux
 
-#RUN chown -R vscode:vscode /vcpkg && chmod -R u+rwX /vcpkg
+RUN chown -R vscode:vscode /vcpkg && chmod -R u+rwX /vcpkg
 
 COPY . .
 
