@@ -4,7 +4,10 @@ project(c-gateway CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(api-gateway-cpp src/main.cpp)
+add_executable(api-gateway-cpp 
+    src/main.cpp 
+    src/controllers/OrdersController.cpp
+    )
 
 find_package(Crow REQUIRED)
 find_package(cpr REQUIRED)

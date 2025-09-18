@@ -16,4 +16,11 @@ void OrdersController::setupRoutes(){
 
             return crow::response(r.status_code, r.text);
         });
+
+    CROW_ROUTE(m_app, "/orders/<int>").methods("GET"_method)
+        ([this](int orderId){
+            std::string downstreamUrl = m_ordersServiceUrl + "/" + std::to_string(orderId);
+            cpr::Response r = cpr::Get(cpr::Url{downstreamUrl}, cpr::Header{{"Accept", "application/json"}});
+            return crow::response(r.status_code, r.text);
+        });
 }
