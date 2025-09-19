@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(api-gateway-cpp 
     src/main.cpp 
     src/controllers/OrdersController.cpp
+    src/config/Config.cpp
     )
 
 find_package(Crow REQUIRED)

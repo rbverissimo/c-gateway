@@ -1,15 +1,14 @@
 #include <cstdlib>
 #include "crow.h"
 #include "controllers/OrdersController.h"
+#include "config/Config.h"
 
 int main(){
 
     crow::SimpleApp app;
+    Config config;
 
-    const char* orders_service_path_ptr = std::getenv("ORDERS_SERVICE_PATH");
-    const std::string ORDERS_SERVICE_PATH = orders_service_path_ptr ? orders_service_path_ptr : "";
-
-    OrdersController ordersController(app, ORDERS_SERVICE_PATH);
+    OrdersController ordersController(app, config.getOrdersServiceUrl());
     ordersController.setupRoutes();
 
     CROW_ROUTE(app, "/health")([](){
