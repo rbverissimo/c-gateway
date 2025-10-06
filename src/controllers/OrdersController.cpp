@@ -23,4 +23,19 @@ void OrdersController::setupRoutes(){
             cpr::Response r = cpr::Get(cpr::Url{downstreamUrl}, cpr::Header{{"Accept", "application/json"}});
             return crow::response(r.status_code, r.text);
         });
+
+    CROW_ROUTE(m_app, "/orders").methods("GET"_method)
+    ([this](const crow::request& req){
+        cpr::Parameters params = {};
+        if(auto product_id = req.url_params.get("product_id")){
+            params.Add({"product_id", product_id});
+        }
+
+        cpr::Response r = cpr::Get(
+            cpr::Url{m_ordersServiceUrl + "/orders"},
+            cpr::Header{{"Accept", "application/json"}},
+            params
+        );
+        return crow::response(r.status_code, r.text);
+    });
 }
