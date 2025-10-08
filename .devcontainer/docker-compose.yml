@@ -1,0 +1,18 @@
+services:
+  api-gateway:
+    build: 
+      context: ../
+      dockerfile: Dockerfile
+      target: builder
+    ports:
+      - "18080:18080"
+    environment:
+      - ORDERS_SERVICE_PATH=order_service:8000
+    volumes:
+      - ../:/usrapp
+    command: sleep infinity
+    networks:
+      - ms-study-dev
+networks:
+  ms-study-dev:
+    external: true

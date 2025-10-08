@@ -1,15 +1,15 @@
 {
     "name": "API Gateway in C++",
-    "dockerComposeFile":"../docker-compose.yml",
+    "dockerComposeFile":"docker-compose.yml",
     "service": "api-gateway",
     "workspaceFolder": "/usrapp",
-    // "postCreateCommand": "sudo chown -R vscode:vscode /vcpkg && chmod -R u+rwX & ",
     "remoteUser": "vscode",
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-vscode.cpptools",
-                "ms-vscode.cmake-tools"
+                "ms-vscode.cmake-tools",
+                "cheshirekow.cmake-format"
             ]
         }
     }
