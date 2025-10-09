@@ -31,6 +31,18 @@ void OrdersController::setupRoutes(){
             params.Add({"product_id", product_id});
         }
 
+        if(auto min_amount = req.url_params.get("min_amount")){
+            params.Add({"min_amount", min_amount});
+        }
+
+        if(auto max_amount = req.url_params.get("max_amount")){
+            params.Add({"max_amount", max_amount});
+        }
+
+        if(auto status = req.url_params.get("status")){
+            params.Add({"status", status});
+        }
+
         cpr::Response r = cpr::Get(
             cpr::Url{m_ordersServiceUrl + "/orders"},
             cpr::Header{{"Accept", "application/json"}},
