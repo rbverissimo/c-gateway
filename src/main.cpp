@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include "crow.h"
 #include "controllers/OrdersController.h"
+#include "controllers/AuthController.h"
 #include "config/Config.h"
 
 int main(){
@@ -10,6 +11,9 @@ int main(){
 
     OrdersController ordersController(app, config.getOrdersServiceUrl());
     ordersController.setupRoutes();
+
+    AuthController authController(app, config.getAuthServiceUrl());
+    authController.setupRoutes();
 
     CROW_ROUTE(app, "/health")([](){
         return "API Gateway is healthy";

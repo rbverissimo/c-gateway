@@ -8,6 +8,7 @@ services:
       - "18080:18080"
     environment:
       - ORDERS_SERVICE_PATH=order_service:8000
+      - AUTH_SERVICE_PATH=auth-service:8080
     volumes:
       - ../:/usrapp
     command: sleep infinity
