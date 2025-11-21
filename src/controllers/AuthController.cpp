@@ -9,9 +9,21 @@ void AuthController::setupRoutes(){
 
     CROW_ROUTE(m_app, "/v1/auth/health").methods("GET"_method)
         ([this](const crow::request& req){
-            std::string downstreamUrl = m_authServiceUrl + "/health";
+            std::string downstreamUrl = m_authServiceUrl + "/actuator/health";
             cpr::Response r = cpr::Get(cpr::Url(downstreamUrl), cpr::Header{{"Accept", "application/json"}});
             return crow::response(r.status_code, r.text);
     });
+
+    CROW_ROUTE(m_app, "/v1/auth/login").methods("POST"_method)
+        ([this](const crow::request& req){
+            std::string downStreamUrl = m_authServiceUrl + "/auth/login";
+            cpr::Response r = cpr::Post(
+                cpr::Url{downStreamUrl},
+                cpr::Body{req.body},
+                cpr::Header{{"Content-Type", "application/json"}},
+                cpr::Header{{"Accept", "application/json"}}
+            );
+            return crow::response(r.status_code, r.text);
+        });
 
 }
